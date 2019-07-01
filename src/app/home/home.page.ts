@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,32 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public subjectslist: string[] = [
+    'JAVA',
+    'ANGULAR',
+    'PYTHON'
+  ];
 
-  text = "Before Change"
-  onClickChange(){
 
-    this.text = "After Change"
+  constructor(public alertContrl : AlertController) {}
+  public uname="";
+  public marks = "";
+  public text = "Before Change";
 
+
+
+ public async presentAlert() {
+    const alert = await this.alertContrl.create({
+      header: 'Summery',
+      // subHeader: 'this changes save permenantly',
+      message: "Name : "+this.uname+"<br>"+"Marks : "+this.marks,
+      buttons: ['OK','Cancel'],
+
+    });
+
+    await alert.present();
   }
+
+
 
 }

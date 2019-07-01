@@ -3,7 +3,7 @@
 
     <ion-header>
       <ion-toolbar color="primary"> 
-        <ion-title>Attendance</ion-title>
+        <ion-title>MarkSheet</ion-title>
       </ion-toolbar>
           
       </ion-header>
@@ -13,30 +13,42 @@
 
             <ion-row>
               <ion-col size-md="6" offset-md="3">
+                
                 <ion-card>
                   <ion-header><ion-card-title></ion-card-title> </ion-header>
                   <ion-card-content>
 
-                      <ion-item>
-                          <ion-label position="floating">Enter Name : </ion-label>
-                          <ion-input type="text"></ion-input>
+                       <ion-item>
+                          <ion-label position="floating">Enter Name  </ion-label>
+                          <ion-input type="text" id="uname" [(ngModel)]="uname"></ion-input>
                         </ion-item>
                         <ion-item>
-                  
+                          <ion-label>Subject List</ion-label>
+                          <ion-select>
+                            <ion-select-option  value="JAVA">JAVA</ion-select-option>
+                            <ion-select-option  value="ASP">ASP</ion-select-option>
+                          </ion-select>  
+                        </ion-item>
+                        
+
+                        <ion-item>
                           <ion-label position="floating">Enter Your Marks</ion-label>
-                          <ion-input type="number"></ion-input>
+                          <ion-input type="number" [(ngModel)]="marks" ></ion-input>
                         </ion-item>
                         <br>
-                        <ion-button fill="outline" color="danger">
-                          <ion-icon name="checkmark"></ion-icon>
-                          Add Attendance
-                        </ion-button>
-                        <ion-button color="danger" fill="outline">
-                            <ion-icon name="close"></ion-icon>
-                          Reset</ion-button>
+                        <div margin-vertical text-right>
+                            <ion-button fill="outline" color="danger" (click)="presentAlert()">
+                              <ion-icon name="checkmark"></ion-icon>
+                              Add Attendance
+                            </ion-button>
+                            <ion-button color="danger" fill="outline">
+                                <ion-icon name="close"></ion-icon>
+                              Reset</ion-button>
+
+                        </div>
                   </ion-card-content>
                 </ion-card>
-
+              
 
               </ion-col>
             </ion-row>
